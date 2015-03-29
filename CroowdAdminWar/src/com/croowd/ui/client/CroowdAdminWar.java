@@ -2,15 +2,17 @@ package com.croowd.ui.client;
 
 import com.google.gwt.core.client.EntryPoint;
 
+
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
  */
-public class CroowdAdminWar implements EntryPoint {
+public class CroowdAdminWar implements EntryPoint  {
 
-	/**
-	 * This is the entry point method.
-	 */
+	@Override
 	public void onModuleLoad() {
-		new AppEntryPoint(getClass().getSimpleName()).start();
+		new AppEntryPoint(getClass().getSimpleName()).start();;
+		
 	}
+
+	
 }
