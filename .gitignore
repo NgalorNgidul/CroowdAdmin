@@ -5,7 +5,9 @@
 *.devmode.js
 compilation-mappings.txt
 gwt-unitCache-*
+*/.gwt/gwt-log
 */war/WEB-INF/classes/*
+*/war/WEB-INF/deploy/*
 *.symbolMap
 
 # Mobile Tools for Java (J2ME)
