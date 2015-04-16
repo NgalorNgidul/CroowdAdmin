@@ -6,7 +6,7 @@ import com.google.gwt.core.client.EntryPoint;
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
  */
-public class CroowdAdminWar implements EntryPoint  {
+public class CroowdAdmin implements EntryPoint  {
 
 	@Override
 	public void onModuleLoad() {

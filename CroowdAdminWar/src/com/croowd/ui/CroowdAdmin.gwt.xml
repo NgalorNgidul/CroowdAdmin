@@ -24,7 +24,7 @@
 
 
   <!-- Specify the app entry point class.                         -->
-	<entry-point class='com.croowd.ui.client.CroowdAdminWar' />
+	<entry-point class='com.croowd.ui.client.CroowdAdmin' />
 	<replace-with class="com.croowd.ui.client.AppFactoryImpl">
 		<when-type-is class="com.croowd.ui.client.AppFactory" />
 	</replace-with>
