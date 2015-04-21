@@ -9,7 +9,7 @@
   
   <!-- Default page to serve -->
   <welcome-file-list>
-    <welcome-file>CroowdAdminWar.html</welcome-file>
+    <welcome-file>CroowdAdmin.html</welcome-file>
   </welcome-file-list>
 
 </web-app>
