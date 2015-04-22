@@ -87,14 +87,10 @@ public class ApproveProjectForm extends Composite implements IApproveProject{
 
 	@Override
 	public void viewProject() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void editProject() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	
