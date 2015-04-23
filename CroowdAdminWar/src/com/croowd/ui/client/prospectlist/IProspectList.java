@@ -1,23 +1,20 @@
-package com.croowd.ui.client.project;
+package com.croowd.ui.client.prospectlist;
 
 import org.simbiosis.ui.gwt.client.mvp.SIMbiosisActivity;
 
-import com.croowd.ui.shared.ProjectDv;
+import com.croowd.ui.client.json.ProspectJso;
 import com.google.gwt.user.client.ui.Widget;
 
-public interface IApproveProject {
+public interface IProspectList {
 
 	public void setActivity(Activity activity);
 
 	public Widget getWidget();
 
-	public void setProjectData(ProjectDv data);
-
-	public void viewProject();
+	public void addData(ProspectJso data);
 	
-	public void editProject();
+	public void reviewProspect(ProspectJso data);
 
 	public abstract class Activity extends SIMbiosisActivity {
-		public abstract void editProject();
 	}
 }

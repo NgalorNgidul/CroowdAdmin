@@ -2,12 +2,12 @@ package com.croowd.ui.client;
 
 import org.simbiosis.ui.gwt.client.mvp.SIMbiosisClientFactory;
 
-import com.croowd.ui.client.project.IApproveProject;
 import com.croowd.ui.client.project.IProject;
-
+import com.croowd.ui.client.prospectlist.IProspectList;
 
 public interface AppFactory extends SIMbiosisClientFactory {
+	IProspectList getProspectList();
+
 	IProject getProjectForm();
-	
-	IApproveProject getApproveProjectForm();
+
 }
