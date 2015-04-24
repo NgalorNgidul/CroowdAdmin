@@ -14,7 +14,12 @@ public interface IProspectList {
 	public void addData(ProspectJso data);
 	
 	public void reviewProspect(ProspectJso data);
+	
+	public void backToList();
 
 	public abstract class Activity extends SIMbiosisActivity {
+		public abstract void onBack();
+		public abstract void onApprove();
+		public abstract void onReject();
 	}
 }

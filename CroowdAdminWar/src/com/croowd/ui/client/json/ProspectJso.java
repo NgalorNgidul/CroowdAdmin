@@ -39,7 +39,7 @@ public class ProspectJso extends JavaScriptObject {
 	}-*/;
 
 	public final native String getPrincipal() /*-{
-		return this.principal;
+		return this.principal.toString();
 	}-*/;
 
 	public final native void setPrincipal(String principal) /*-{
@@ -47,7 +47,7 @@ public class ProspectJso extends JavaScriptObject {
 	}-*/;
 
 	public final native String getTenor() /*-{
-		return this.tenor;
+		return this.tenor.toString();
 	}-*/;
 
 	public final native void setTenor(String tenor) /*-{
@@ -110,17 +110,17 @@ public class ProspectJso extends JavaScriptObject {
 		this.phone = phone;
 	}-*/;
 
-	public final native String getPassword() /*-{
-		return this.password;
-	}-*/;
+	public final String getPassword() {
+		return "";
+	}
 
 	public final native void setPassword(String password) /*-{
 		this.password = password;
 	}-*/;
 
-	public final native String getPasswordconf() /*-{
-		return this.passwordconf;
-	}-*/;
+	public final String getPasswordconf() {
+		return "";
+	}
 
 	public final native void setPasswordconf(String passwordconf) /*-{
 		this.passwordconf = passwordconf;

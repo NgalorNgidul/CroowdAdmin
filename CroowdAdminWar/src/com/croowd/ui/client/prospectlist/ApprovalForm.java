@@ -5,8 +5,10 @@ import com.croowd.ui.client.prospectlist.IProspectList.Activity;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.editor.client.Editor;
 import com.google.gwt.editor.client.SimpleBeanEditorDriver;
+import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Label;
@@ -59,6 +61,8 @@ public class ApprovalForm extends Composite implements Editor<ProspectJso> {
 	Button btnApprove;
 	@UiField
 	Button btnReject;
+	@UiField
+	Button btnBack;
 
 	public ApprovalForm() {
 		initWidget(uiBinder.createAndBindUi(this));
@@ -74,4 +78,8 @@ public class ApprovalForm extends Composite implements Editor<ProspectJso> {
 		driver.edit(data);
 	}
 
+	@UiHandler("btnBack")
+	void onBtnBack(ClickEvent e) {
+		activity.onBack();
+	}
 }

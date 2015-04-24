@@ -19,7 +19,7 @@ public class ProspectListForm extends Composite implements IProspectList {
 
 	@UiField
 	VerticalPanel appPanel;
-	
+
 	ProspectResultList resultList = new ProspectResultList();
 	ApprovalForm approvalForm = new ApprovalForm();
 
@@ -50,8 +50,14 @@ public class ProspectListForm extends Composite implements IProspectList {
 	@Override
 	public void reviewProspect(ProspectJso data) {
 		appPanel.clear();
-		//approvalForm.setData(data);
+		approvalForm.setData(data);
 		appPanel.add(approvalForm);
+	}
+
+	@Override
+	public void backToList() {
+		appPanel.clear();
+		appPanel.add(resultList);
 	}
 
 }

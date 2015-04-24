@@ -75,4 +75,22 @@ public class ProspectListActivity extends Activity {
 		}
 	}
 
+	@Override
+	public void onBack() {
+		IProspectList myForm = appFactory.getProspectList();
+		myForm.backToList();
+	}
+
+	@Override
+	public void onApprove() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onReject() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

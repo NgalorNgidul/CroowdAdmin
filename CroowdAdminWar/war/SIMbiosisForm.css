@@ -5,6 +5,11 @@
 	padding: 10px;
 }
 
+.scrollpanel {
+	width: 100%;
+	height: 100%;
+}
+
 .fullbox {
 	vertical-align: top;
 	width: 100%;
