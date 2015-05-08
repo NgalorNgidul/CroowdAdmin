@@ -107,4 +107,7 @@ public class ProspectResultList extends Composite {
 		}
 	}
 
+	public void clear(){
+		prospectList.clear();
+	}
 }

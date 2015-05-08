@@ -60,4 +60,12 @@ public class ProspectListForm extends Composite implements IProspectList {
 		appPanel.add(resultList);
 	}
 
+	@Override
+	public void reloadList() {
+		appPanel.clear();
+		appPanel.add(resultList);
+		resultList.clear();
+	}
+
+	
 }

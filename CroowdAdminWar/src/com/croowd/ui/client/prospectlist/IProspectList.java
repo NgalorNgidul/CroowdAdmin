@@ -12,14 +12,18 @@ public interface IProspectList {
 	public Widget getWidget();
 
 	public void addData(ProspectJso data);
-	
+
 	public void reviewProspect(ProspectJso data);
-	
+
 	public void backToList();
+	
+	public void reloadList();
 
 	public abstract class Activity extends SIMbiosisActivity {
 		public abstract void onBack();
-		public abstract void onApprove();
+
+		public abstract void onApprove(String id);
+
 		public abstract void onReject();
 	}
 }

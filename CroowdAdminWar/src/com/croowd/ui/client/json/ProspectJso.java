@@ -6,6 +6,10 @@ public class ProspectJso extends JavaScriptObject {
 	protected ProspectJso() {
 	}
 
+	public final native String getId() /*-{
+		return this.id.toString();
+	}-*/;
+
 	public final native String getTitle() /*-{
 		return this.title;
 	}-*/;

@@ -44,7 +44,7 @@ public class ProspectListActivity extends Activity {
 
 	private void loadProspect() {
 		String url = "http://api.croowd.co.id/prospect/"
-				+ appFactory.getStatus().getSession() + "/listAll/";
+				+ appFactory.getStatus().getSession() + "/listPublishApproval/";
 
 		RequestBuilder builder = new RequestBuilder(RequestBuilder.GET, url);
 		try {
@@ -81,16 +81,45 @@ public class ProspectListActivity extends Activity {
 		myForm.backToList();
 	}
 
+	private void reloadData() {
+		IProspectList myForm = appFactory.getProspectList();
+		myForm.reloadList();
+		loadProspect();
+	}
+
 	@Override
-	public void onApprove() {
-		// TODO Auto-generated method stub
-		
+	public void onApprove(String id) {
+		String url = "http://api.croowd.co.id/prospect/"
+				+ appFactory.getStatus().getSession() + "/approve/"
+				+ id;
+
+		RequestBuilder builder = new RequestBuilder(RequestBuilder.GET, url);
+		try {
+			builder.sendRequest(null, new RequestCallback() {
+				public void onError(Request request, Throwable e) {
+					Window.alert(e.getMessage());
+				}
+
+				public void onResponseReceived(Request request,
+						Response response) {
+					if (200 == response.getStatusCode()) {
+						reloadData();
+					} else {
+						Window.alert("Received HTTP status code other than 200 : "
+								+ response.getStatusText());
+					}
+				}
+			});
+		} catch (RequestException e) {
+			// Couldn't connect to server
+			Window.alert(e.getMessage());
+		}
 	}
 
 	@Override
 	public void onReject() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

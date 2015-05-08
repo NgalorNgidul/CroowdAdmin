@@ -82,4 +82,11 @@ public class ApprovalForm extends Composite implements Editor<ProspectJso> {
 	void onBtnBack(ClickEvent e) {
 		activity.onBack();
 	}
+	
+	@UiHandler("btnApprove")
+	void onBtnApprove(ClickEvent e) {
+		ProspectJso data = driver.flush();
+		activity.onApprove(data.getId());
+	}
+
 }
