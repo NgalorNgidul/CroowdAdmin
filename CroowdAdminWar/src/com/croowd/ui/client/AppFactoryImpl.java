@@ -2,6 +2,8 @@ package com.croowd.ui.client;
 
 import org.simbiosis.ui.gwt.client.mvp.SIMbiosisClientFactoryImpl;
 
+import com.croowd.ui.client.memberlist.IMemberList;
+import com.croowd.ui.client.memberlist.MemberListForm;
 import com.croowd.ui.client.project.IProject;
 import com.croowd.ui.client.project.ProjectForm;
 import com.croowd.ui.client.prospectlist.IProspectList;
@@ -11,6 +13,7 @@ public class AppFactoryImpl extends SIMbiosisClientFactoryImpl implements
 		AppFactory {
 
 	static final ProspectListForm PROSPECT_LIST = new ProspectListForm();
+	static final MemberListForm MEMBER_LIST = new MemberListForm();
 	static final ProjectForm PROJECT_FORM = new ProjectForm();
 
 	@Override
@@ -21,6 +24,11 @@ public class AppFactoryImpl extends SIMbiosisClientFactoryImpl implements
 	@Override
 	public IProject getProjectForm() {
 		return PROJECT_FORM;
+	}
+
+	@Override
+	public IMemberList getMemberList() {
+		return MEMBER_LIST;
 	}
 
 }
