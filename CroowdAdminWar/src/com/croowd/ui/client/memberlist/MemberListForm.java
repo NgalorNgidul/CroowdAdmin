@@ -22,7 +22,7 @@ public class MemberListForm extends Composite implements IMemberList {
 
 	MemberResultList resultList = new MemberResultList();
 
-	// ApprovalForm approvalForm = new ApprovalForm();
+	MemberForm memberForm = new MemberForm();
 
 	public MemberListForm() {
 		initWidget(uiBinder.createAndBindUi(this));
@@ -35,7 +35,7 @@ public class MemberListForm extends Composite implements IMemberList {
 	public void setActivity(Activity activity) {
 		this.activity = activity;
 		//
-		// approvalForm.setActivity(activity);
+		memberForm.setActivity(activity);
 	}
 
 	@Override
@@ -51,8 +51,8 @@ public class MemberListForm extends Composite implements IMemberList {
 	@Override
 	public void viewMember(MemberJso data) {
 		appPanel.clear();
-		// approvalForm.setData(data);
-		// appPanel.add(approvalForm);
+		memberForm.setData(data);
+		appPanel.add(memberForm);
 	}
 
 	@Override

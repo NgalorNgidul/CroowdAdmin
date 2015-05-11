@@ -4,7 +4,7 @@
 	<g:VerticalPanel styleName="fullbox" height="100%"
 		width="100%">
 		<g:HTMLPanel styleName="header1">
-			<div>LIST PROSPEK UNTUK VALIDASI</div>
+			<div>LIST ANGGOTA</div>
 		</g:HTMLPanel>
 		<g:HTMLPanel styleName="headerspacer">
 			<div></div>
