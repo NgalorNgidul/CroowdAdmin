@@ -2,7 +2,7 @@ package com.croowd.ui.client.prospectlist;
 
 import com.croowd.ui.client.AppFactory;
 import com.croowd.ui.client.json.ProspectJso;
-import com.croowd.ui.client.place.ProspectList;
+import com.croowd.ui.client.places.ProspectList;
 import com.croowd.ui.client.prospectlist.IProspectList.Activity;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsonUtils;

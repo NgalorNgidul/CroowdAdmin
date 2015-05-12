@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.croowd.ui.client.AppFactory;
-import com.croowd.ui.client.place.Project;
+import com.croowd.ui.client.places.Project;
 import com.croowd.ui.client.project.IProject.Activity;
 import com.croowd.ui.shared.ProjectDv;
 import com.google.gwt.event.shared.EventBus;

@@ -1,4 +1,4 @@
-package com.croowd.ui.client.place;
+package com.croowd.ui.client.places;
 
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceTokenizer;

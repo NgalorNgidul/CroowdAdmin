@@ -3,7 +3,7 @@ package com.croowd.ui.client.memberlist;
 import com.croowd.ui.client.AppFactory;
 import com.croowd.ui.client.json.MemberJso;
 import com.croowd.ui.client.memberlist.IMemberList.Activity;
-import com.croowd.ui.client.place.MemberList;
+import com.croowd.ui.client.places.MemberList;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsonUtils;
 import com.google.gwt.event.shared.EventBus;
