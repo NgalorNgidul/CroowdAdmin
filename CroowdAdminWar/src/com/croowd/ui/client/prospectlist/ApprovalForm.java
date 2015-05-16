@@ -12,6 +12,7 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.NumberLabel;
 import com.google.gwt.user.client.ui.Widget;
 
 public class ApprovalForm extends Composite implements Editor<ProspectJso> {
@@ -51,9 +52,9 @@ public class ApprovalForm extends Composite implements Editor<ProspectJso> {
 	@UiField
 	Label location;
 	@UiField
-	Label principal;
+	NumberLabel<Double> principal;
 	@UiField
-	Label tenor;
+	NumberLabel<Integer> tenor;
 	@UiField
 	Label description;
 
