@@ -7,27 +7,27 @@
 				<td class="halfbox">
 					<div class="compositebox">
 						<div class="fieldtitle">Nama proyek</div>
-						<g:TextBox styleName="fieldtextbox" ui:field="title" />
+						<g:Label styleName="fieldlabel" ui:field="title" />
 					</div>
 					<div class="compositebox">
 						<div class="fieldtitle">Lokasi</div>
-						<g:TextBox styleName="fieldtextbox" ui:field="location" />
+						<g:Label styleName="fieldlabel" ui:field="location" />
 					</div>
 					<div class="compositebox">
 						<div class="fieldtitle">Kebutuhan</div>
-						<g:TextBox styleName="fieldtextbox" ui:field="strPrincipal" />
+						<g:NumberLabel styleName="fieldlabel" ui:field="principal" customFormat="#,##0.00"/>
 					</div>
 					<div class="compositebox">
 						<div class="fieldtitle">Tenor</div>
-						<g:TextBox styleName="fieldtextbox" ui:field="strTenor" />
+						<g:NumberLabel styleName="fieldlabel" ui:field="tenor" />
 					</div>
 					<div class="compositebox">
 						<div class="fieldtitle">Keterangan singkat</div>
-						<g:TextBox styleName="fieldtextbox" ui:field="shortDescription" />
+						<g:Label styleName="fieldlabel" ui:field="shortDescription" />
 					</div>
 					<div class="compositebox">
 						<div class="fieldtitle">Keterangan</div>
-						<g:TextBox styleName="fieldtextbox" ui:field="description" />
+						<g:Label styleName="fieldlabel" ui:field="description" />
 					</div>
 				</td>
 			</tr>

@@ -17,11 +17,11 @@ public interface IInvestList {
 
 	public void noResultData();
 
-	// public void editProspect(ProspectJso data);
+	public void reviewInvest(InvestPlanJso data);
 
 	public void backToList();
 
-	// public ProspectJso getData();
+	public InvestPlanJso getData();
 
 	public abstract class Activity extends SIMbiosisActivity {
 		public abstract void onBack();

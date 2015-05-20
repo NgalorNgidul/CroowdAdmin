@@ -17,11 +17,6 @@ import com.google.gwt.user.client.ui.AcceptsOneWidget;
 
 public class InvestListActivity extends Activity {
 
-	// String pattern = "dd-MM-yyyy"; /* your pattern here */
-	// DefaultDateTimeFormatInfo info = new DefaultDateTimeFormatInfo();
-	// DateTimeFormat dtf = new DateTimeFormat(pattern, info) {
-	// }; // <= trick here
-
 	InvestList myPlace;
 	AppFactory appFactory;
 
@@ -44,7 +39,7 @@ public class InvestListActivity extends Activity {
 
 	private void loadInvest() {
 		String url = "http://api.croowd.co.id/invest/" + getSession()
-				+ "/listAllPlan/";
+				+ "/listAllPlan/1"; // Belum di verifikasi
 
 		RequestBuilder builder = new RequestBuilder(RequestBuilder.GET, url);
 		try {
@@ -83,7 +78,6 @@ public class InvestListActivity extends Activity {
 	private void reloadResultList() {
 		IInvestList myForm = appFactory.getInvestList();
 		myForm.backToList();
-		myForm.clearResultData();
 		loadInvest();
 	}
 
@@ -95,36 +89,31 @@ public class InvestListActivity extends Activity {
 
 	@Override
 	public void onSave() {
-		// String url = "http://api.croowd.co.id/prospect/" + getSession()
-		// + "/save/";
+		IInvestList myForm = appFactory.getInvestList();
+		String url = "http://api.croowd.co.id/invest/" + getSession()
+				+ "/verify/" + myForm.getData().getId();
 		//
-		// IInvestList myForm = appFactory.getInvestList();
-		// ProspectJso jso = myForm.getData();
-		// jso.setSessionName(getSession());
-		// RequestBuilder builder = new RequestBuilder(RequestBuilder.POST,
-		// url);
-		// try {
-		// builder.setHeader("Content-Type", "application/json");
-		// builder.sendRequest(new JSONObject(jso).toString(),
-		// new RequestCallback() {
-		// public void onError(Request request, Throwable e) {
-		// Window.alert(e.getMessage());
-		// }
-		//
-		// public void onResponseReceived(Request request,
-		// Response response) {
-		// if (200 == response.getStatusCode()) {
-		// reloadResultList();
-		// } else {
-		// Window.alert("Received HTTP status code other than 200 : "
-		// + response.getStatusText());
-		// }
-		// }
-		// });
-		// } catch (RequestException e) {
-		// // Couldn't connect to server
-		// Window.alert(e.getMessage());
-		// }
+		RequestBuilder builder = new RequestBuilder(RequestBuilder.GET, url);
+		try {
+			builder.sendRequest(null, new RequestCallback() {
+				public void onError(Request request, Throwable e) {
+					Window.alert(e.getMessage());
+				}
+
+				public void onResponseReceived(Request request,
+						Response response) {
+					if (200 == response.getStatusCode()) {
+						reloadResultList();
+					} else {
+						Window.alert("Received HTTP status code other than 200 : "
+								+ response.getStatusText());
+					}
+				}
+			});
+		} catch (RequestException e) {
+			// Couldn't connect to server
+			Window.alert(e.getMessage());
+		}
 	}
 
 }

@@ -1,16 +1,16 @@
 package com.croowd.ui.client.investlist;
 
 import com.croowd.ui.client.investlist.IInvestList.Activity;
+import com.croowd.ui.client.json.InvestPlanJso;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
-import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HorizontalPanel;
-import com.google.gwt.user.client.ui.TextBox;
+import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.NumberLabel;
 import com.google.gwt.user.client.ui.Widget;
 
 public class InvestEditorForm extends Composite {
@@ -27,22 +27,15 @@ public class InvestEditorForm extends Composite {
 	@UiField
 	HorizontalPanel prospectWidget;
 	@UiField
-	TextBox value;
+	Label memberName;
+	@UiField
+	NumberLabel<Double> value;
+
+	InvestPlanJso invest;
 
 	public InvestEditorForm() {
 		initWidget(uiBinder.createAndBindUi(this));
 		//
-		Button button = new Button("Cari Prospek");
-		button.setStyleName("fieldbutton");
-		button.addClickHandler(new ClickHandler() {
-			
-			@Override
-			public void onClick(ClickEvent event) {
-				//ProspectDlg dlg = new ProspectDlg();
-				//dlg.center();
-			}
-		});
-		prospectWidget.add(button);
 	}
 
 	public void setActivity(Activity activity) {
@@ -59,4 +52,19 @@ public class InvestEditorForm extends Composite {
 		activity.onSave();
 	}
 
+	public void setData(InvestPlanJso data) {
+		//
+		invest = data;
+		//
+		prospectWidget.clear();
+		memberName.setText(data.getMemberName());
+		value.setValue(data.getValue());
+		ProspectViewerWidget form = new ProspectViewerWidget();
+		form.setData(data.getProspect());
+		prospectWidget.add(form);
+	}
+	
+	public InvestPlanJso getData(){
+		return invest;
+	}
 }

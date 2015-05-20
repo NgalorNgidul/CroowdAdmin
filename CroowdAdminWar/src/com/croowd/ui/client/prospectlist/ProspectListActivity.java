@@ -17,11 +17,6 @@ import com.google.gwt.user.client.ui.AcceptsOneWidget;
 
 public class ProspectListActivity extends Activity {
 
-	// String pattern = "dd-MM-yyyy"; /* your pattern here */
-	// DefaultDateTimeFormatInfo info = new DefaultDateTimeFormatInfo();
-	// DateTimeFormat dtf = new DateTimeFormat(pattern, info) {
-	// }; // <= trick here
-
 	ProspectList myPlace;
 	AppFactory appFactory;
 

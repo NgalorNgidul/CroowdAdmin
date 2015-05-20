@@ -1,8 +1,5 @@
 package com.croowd.ui.client.prospectlist;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.croowd.ui.client.json.ProspectJso;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -22,6 +19,7 @@ import com.google.gwt.user.client.ui.Widget;
 public class ProspectResultList extends Composite {
 
 	ProspectListForm parentForm;
+	NumberFormat nf = NumberFormat.getFormat("#,##0.00");
 
 	private static ProspectResultListUiBinder uiBinder = GWT
 			.create(ProspectResultListUiBinder.class);
@@ -30,34 +28,17 @@ public class ProspectResultList extends Composite {
 			UiBinder<Widget, ProspectResultList> {
 	}
 
-	public class Mapper {
-		Button button;
-		ProspectJso jso;
+	public abstract class ProspectClickHandler implements ClickHandler {
+		ProspectJso prospect = null;
 
-		public Mapper(Button button, ProspectJso jso) {
-			this.button = button;
-			this.jso = jso;
+		public ProspectClickHandler(ProspectJso prospect) {
+			this.prospect = prospect;
 		}
 
-		public Button getButton() {
-			return button;
+		public ProspectJso getProspect() {
+			return prospect;
 		}
-
-		public void setButton(Button button) {
-			this.button = button;
-		}
-
-		public ProspectJso getJso() {
-			return jso;
-		}
-
-		public void setJso(ProspectJso jso) {
-			this.jso = jso;
-		}
-
 	}
-
-	List<Mapper> buttons = new ArrayList<Mapper>();
 
 	@UiField
 	VerticalPanel prospectList;
@@ -71,12 +52,11 @@ public class ProspectResultList extends Composite {
 	}
 
 	public void addData(ProspectJso data) {
-		NumberFormat nf = NumberFormat.getFormat("#,##0.00");
 		VerticalPanel vp = new VerticalPanel();
 		vp.setStyleName("fullbox");
 		HTMLPanel panel = null;
 		//
-		if (buttons.size() > 0) {
+		if (prospectList.getWidgetCount() > 0) {
 			panel = new HTMLPanel("<div></div>");
 			panel.setStyleName("itemlinespacer");
 			vp.add(panel);
@@ -102,34 +82,17 @@ public class ProspectResultList extends Composite {
 		contentWrapper.add(panel);
 		Button btnReview = new Button("Lihat detail");
 		btnReview.setStyleName("fieldbutton");
-		buttons.add(new Mapper(btnReview, data));
-		btnReview.addClickHandler(new ClickHandler() {
+		btnReview.addClickHandler(new ProspectClickHandler(data) {
 
 			@Override
 			public void onClick(ClickEvent event) {
-				onClickHandler((Button) event.getSource());
+				parentForm.reviewProspect(getProspect());
 			}
 		});
 		contentWrapper.add(btnReview);
 		wrapper.add(contentWrapper);
-		// wrapper.setCellVerticalAlignment(contentWrapper,
-		// HasVerticalAlignment.ALIGN_TOP);
 		vp.add(wrapper);
 		prospectList.add(vp);
-	}
-
-	private void onClickHandler(Button button) {
-		ProspectJso result = null;
-		int i = 0;
-		while (i < buttons.size() && result == null) {
-			if (buttons.get(i).getButton() == button) {
-				result = buttons.get(i).getJso();
-			}
-			i++;
-		}
-		if (result != null) {
-			parentForm.reviewProspect(result);
-		}
 	}
 
 	public void clear() {

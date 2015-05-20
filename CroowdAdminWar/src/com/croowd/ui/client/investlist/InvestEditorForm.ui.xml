@@ -25,8 +25,13 @@
 					<tr>
 						<td class="halfbox">
 							<div class="compositebox">
+								<div class="fieldtitle">Invester</div>
+								<g:Label styleName="fieldlabel" ui:field="memberName" />
+							</div>
+							<div class="compositebox">
 								<div class="fieldtitle">Nilai investasi</div>
-								<g:TextBox styleName="fieldtextbox" ui:field="value" />
+								<g:NumberLabel styleName="fieldlabel" ui:field="value"
+									customFormat="#,##0.00" />
 							</div>
 						</td>
 					</tr>
@@ -38,12 +43,14 @@
 		</g:HTMLPanel>
 		<g:HorizontalPanel>
 			<g:Button styleName="fieldbigbutton" ui:field="btnSave"
-				text="Simpan" />
+				text="Setujui" />
 			<g:HTMLPanel styleName="widgetboxspacer">
 				<div class="fieldspacer"></div>
 			</g:HTMLPanel>
-			<g:Button styleName="fieldbigbutton" ui:field="btnBack"
-				text="Kembali" />
+			<g:cell width="100%" horizontalAlignment="ALIGN_RIGHT">
+				<g:Button styleName="fieldbigbutton" ui:field="btnBack"
+					text="Kembali" />
+			</g:cell>
 		</g:HorizontalPanel>
 	</g:VerticalPanel>
 </ui:UiBinder> 
