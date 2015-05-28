@@ -77,7 +77,7 @@ public class ProspectResultList extends Composite {
 				+ data.getOwnerName() + "</b><br/>Kebutuhan : Rp "
 				+ nf.format(data.getPrincipal()) + ",-, Tenor : "
 				+ data.getTenor() + " bulan<br/>" + data.getDescription()
-				+ "<br/><br/>");
+				+ "<br/><br/>Nilai skor : 50<br/><br/>");
 		panel.setStyleName("itemline");
 		contentWrapper.add(panel);
 		Button btnReview = new Button("Lihat detail");

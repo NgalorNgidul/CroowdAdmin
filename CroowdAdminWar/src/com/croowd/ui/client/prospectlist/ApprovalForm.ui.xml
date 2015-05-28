@@ -90,6 +90,29 @@
 		<g:HTMLPanel styleName="widgetboxspacer">
 			<div></div>
 		</g:HTMLPanel>
+		<g:HTMLPanel styleName="header1">
+			<div>PENILAIAN PROYEK</div>
+		</g:HTMLPanel>
+		<g:HTMLPanel styleName="headerspacer">
+			<div></div>
+		</g:HTMLPanel>
+		<g:HorizontalPanel styleName="widgetbox">
+			<g:HTMLPanel styleName="fullbox">
+				<table class="fullbox">
+					<tr>
+						<td class="halfbox">
+							<div class="compositebox">
+								<div class="fieldtitle">Nilai skor</div>
+								<g:Label styleName="fieldlabel" ui:field="scoring">50</g:Label>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</g:HTMLPanel>
+		</g:HorizontalPanel>
+		<g:HTMLPanel styleName="widgetboxspacer">
+			<div></div>
+		</g:HTMLPanel>
 		<g:HorizontalPanel>
 			<g:Button styleName="fieldbigbutton" ui:field="btnApprove">Setujui</g:Button>
 			<g:HTMLPanel styleName="widgetboxspacer">
