@@ -1,5 +1,7 @@
 package com.croowd.ui.client.prospectlist;
 
+import org.simbiosis.ui.gwt.client.SIMbiosisStatus;
+
 import com.croowd.ui.client.json.ProspectJso;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -19,6 +21,7 @@ import com.google.gwt.user.client.ui.Widget;
 public class ProspectResultList extends Composite {
 
 	ProspectListForm parentForm;
+	SIMbiosisStatus status;
 	NumberFormat nf = NumberFormat.getFormat("#,##0.00");
 
 	private static ProspectResultListUiBinder uiBinder = GWT
@@ -47,8 +50,9 @@ public class ProspectResultList extends Composite {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
 
-	public void setParent(ProspectListForm parentForm) {
+	public void setParent(ProspectListForm parentForm, SIMbiosisStatus status) {
 		this.parentForm = parentForm;
+		this.status = status;
 	}
 
 	public void addData(ProspectJso data) {
@@ -66,9 +70,8 @@ public class ProspectResultList extends Composite {
 		wrapper.setSpacing(10);
 		wrapper.setVerticalAlignment(HasVerticalAlignment.ALIGN_TOP);
 
-		Image image = new Image(
-				"http://app.croowd.co.id/resources/getProspectImage?type=small&id="
-						+ data.getId());
+		Image image = new Image("http://" + status.getSimbiosisApi()
+				+ "/resources/getProspectImage?type=small&id=" + data.getId());
 		image.setWidth("300px");
 		wrapper.add(image);
 		wrapper.add(new HTMLPanel("<div width=\"20px\"></div>"));

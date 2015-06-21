@@ -1,11 +1,11 @@
 package com.croowd.ui.client.prospectlist;
 
 import com.croowd.ui.client.AppFactory;
+import com.croowd.ui.client.json.JsonServerResponse;
 import com.croowd.ui.client.json.ProspectJso;
 import com.croowd.ui.client.places.ProspectList;
 import com.croowd.ui.client.prospectlist.IProspectList.Activity;
 import com.google.gwt.core.client.JsArray;
-import com.google.gwt.core.client.JsonUtils;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.http.client.Request;
 import com.google.gwt.http.client.RequestBuilder;
@@ -30,7 +30,7 @@ public class ProspectListActivity extends Activity {
 	@Override
 	public void start(AcceptsOneWidget panel, EventBus eventBus) {
 		IProspectList myForm = appFactory.getProspectList();
-		myForm.setActivity(this);
+		myForm.setActivity(this, appFactory.getStatus());
 		//
 		loadProspect();
 		//
@@ -38,8 +38,9 @@ public class ProspectListActivity extends Activity {
 	}
 
 	private void loadProspect() {
-		String url = "http://api.croowd.co.id/prospect/"
-				+ appFactory.getStatus().getSession() + "/listPublishApproval/";
+		String url = "http://" + appFactory.getStatus().getAppApi()
+				+ "/prospect/" + appFactory.getStatus().getSession()
+				+ "/listPublishApproval/";
 
 		RequestBuilder builder = new RequestBuilder(RequestBuilder.GET, url);
 		try {
@@ -52,9 +53,8 @@ public class ProspectListActivity extends Activity {
 						Response response) {
 					if (200 == response.getStatusCode()) {
 						IProspectList myForm = appFactory.getProspectList();
-						JsArray<ProspectJso> projects = JsonUtils
-								.<JsArray<ProspectJso>> safeEval(response
-										.getText());
+						JsArray<ProspectJso> projects = JsonServerResponse
+								.listProspectJso(response.getText());
 						for (int i = 0; i < projects.length(); i++) {
 							myForm.addData(projects.get(i));
 						}
@@ -84,9 +84,9 @@ public class ProspectListActivity extends Activity {
 
 	@Override
 	public void onApprove(String id) {
-		String url = "http://api.croowd.co.id/prospect/"
-				+ appFactory.getStatus().getSession() + "/approve/"
-				+ id;
+		String url = "http://" + appFactory.getStatus().getAppApi()
+				+ "/prospect/" + appFactory.getStatus().getSession()
+				+ "/approve/" + id;
 
 		RequestBuilder builder = new RequestBuilder(RequestBuilder.GET, url);
 		try {

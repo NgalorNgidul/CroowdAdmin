@@ -1,5 +1,7 @@
 package com.croowd.ui.client.prospectlist;
 
+import org.simbiosis.ui.gwt.client.SIMbiosisStatus;
+
 import com.croowd.ui.client.json.ProspectJso;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -11,6 +13,7 @@ import com.google.gwt.user.client.ui.Widget;
 public class ProspectListForm extends Composite implements IProspectList {
 
 	Activity activity;
+	SIMbiosisStatus status;
 
 	private static ThisUiBinder uiBinder = GWT.create(ThisUiBinder.class);
 
@@ -26,15 +29,18 @@ public class ProspectListForm extends Composite implements IProspectList {
 	public ProspectListForm() {
 		initWidget(uiBinder.createAndBindUi(this));
 		//
-		resultList.setParent(this);
-		appPanel.add(resultList);
 	}
 
 	@Override
-	public void setActivity(Activity activity) {
+	public void setActivity(Activity activity, SIMbiosisStatus status) {
 		this.activity = activity;
+		this.status = status;
+		//
+		resultList.setParent(this,status);
+		appPanel.add(resultList);
 		//
 		approvalForm.setActivity(activity);
+		//
 	}
 
 	@Override
@@ -67,5 +73,7 @@ public class ProspectListForm extends Composite implements IProspectList {
 		resultList.clear();
 	}
 
-	
+	SIMbiosisStatus getStatus() {
+		return status;
+	}
 }
