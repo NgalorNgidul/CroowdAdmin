@@ -114,20 +114,8 @@ public class ProspectJso extends JavaScriptObject {
 		this.phone = phone;
 	}-*/;
 
-	public final String getPassword() {
-		return "";
-	}
-
-	public final native void setPassword(String password) /*-{
-		this.password = password;
-	}-*/;
-
-	public final String getPasswordconf() {
-		return "";
-	}
-
-	public final native void setPasswordconf(String passwordconf) /*-{
-		this.passwordconf = passwordconf;
+	public final native int getStatus() /*-{
+		return this.status;
 	}-*/;
 
 }

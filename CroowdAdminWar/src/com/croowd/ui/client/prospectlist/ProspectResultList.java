@@ -55,6 +55,15 @@ public class ProspectResultList extends Composite {
 		this.status = status;
 	}
 
+	private String convertStatus(int status) {
+		switch (status) {
+		case 1:
+			return "Sudah validasi/Promosi";
+		default:
+			return "Belum validasi";
+		}
+	}
+
 	public void addData(ProspectJso data) {
 		VerticalPanel vp = new VerticalPanel();
 		vp.setStyleName("fullbox");
@@ -80,7 +89,7 @@ public class ProspectResultList extends Composite {
 				+ data.getOwnerName() + "</b><br/>Kebutuhan : Rp "
 				+ nf.format(data.getPrincipal()) + ",-, Tenor : "
 				+ data.getTenor() + " bulan<br/>" + data.getDescription()
-				+ "<br/><br/>Nilai skor : 50<br/><br/>");
+				+ "<br/><br/>Nilai skor : 50<br/>Status : " + convertStatus(data.getStatus())+"</br><br/>");
 		panel.setStyleName("itemline");
 		contentWrapper.add(panel);
 		Button btnReview = new Button("Lihat detail");
