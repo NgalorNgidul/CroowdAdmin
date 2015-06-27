@@ -29,10 +29,8 @@
 							</div>
 							<div class="compositebox">
 								<div class="fieldtitle">Kota, kode pos</div>
-								<div>
-									<g:Label styleName="fieldlabel" ui:field="city" />
-									,
-									<g:Label styleName="fieldlabel" ui:field="zipCode" />
+								<div layout="display:inline">
+									<g:Label styleName="fieldlabel" ui:field="city" />, <g:Label styleName="fieldlabel" ui:field="zipCode" />
 								</div>
 							</div>
 							<div class="compositebox">
